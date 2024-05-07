@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #1d1f20;
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .container h1 {
+            text-align: center;
+        }
+
+        #runaway-container {
+            position: absolute;
+            width: 150px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        #runaway {
+            width: 150px;
+        }
+
+        .yes-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            /* Reddish color for the button background */
+            color: white;
+            /* Text color */
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .yes-button button {
+            border: none;
+            background: none;
+            color: inherit;
+            font-size: inherit;
+            cursor: inherit;
+            outline: none;
+        }
+
+        .yes-button:hover {
+            background-color: #ff4942;
+            /* Darker red on hover */
+        }
+
+        #runaway-container {
+            display: inline-block;
+        }
+
+        #runaway {
+            padding: 10px 20px;
+            background-color: #dc3545;
+            /* Red color for danger */
+            color: white;
+            /* Text color */
+            font-size: 16px;
+            border: 2px solid #dc3545;
+            /* Matching border color */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #runaway:hover {
+            background-color: #c82333;
+            /* Darker red on hover */
+            border-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1> Do You Love me Tarannum</h1>
+        <div class="yes-button">
+            <button id="yesButton">YES! I Love You</button>
+        </div>
+        <div id="runaway-container">
+            <button id="runaway">No</button>
+        </div>
+    </div>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+        // var stupidButton = {
+        //     init: function () {
+        //         this.attachEvents();
+        //     },
+
+        //     attachEvents: function () {
+        //         $('#runaway-container').on('hover', this.flyAway);
+        //     },
+
+        //     flyAway: function (e) {
+        //         mLeft = Math.random() * 300;
+        //         mTop = Math.random() * 300;
+
+        //         $('#runaway-container').css('margin-left', mLeft);
+        //         $('#runaway-container').css('margin-top', mTop);
+        //     }
+        // };
+
+        // stupidButton.init();
+
+        var runawayButton = document.getElementById('runaway');
+        var runawayContainer = document.getElementById('runaway-container');
+
+        runawayButton.addEventListener('mouseenter', function () {
+            moveButton();
+        });
+
+        runawayButton.addEventListener('click', function () {
+            moveButton();
+        });
+
+        function moveButton() {
+            var containerRect = runawayContainer.getBoundingClientRect();
+            var maxX = window.innerWidth - containerRect.width;
+            var maxY = window.innerHeight - containerRect.height;
+            var newLeft = Math.floor(Math.random() * maxX);
+            var newTop = Math.floor(Math.random() * maxY);
+
+            runawayContainer.style.left = newLeft + 'px';
+            runawayContainer.style.top = newTop + 'px';
+        }
+
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var yesButton = document.getElementById('yesButton');
+
+            yesButton.addEventListener('click', function () {
+                alert('I Love you Too Mera Bacha ');
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>
