@@ -121,11 +121,18 @@
         var runawayButton = document.getElementById('runaway');
         var runawayContainer = document.getElementById('runaway-container');
 
-        runawayButton.addEventListener('mouseenter', function () {
+        // Touch event for touchscreen devices
+        runawayButton.addEventListener('touchstart', function () {
             moveButton();
         });
 
+        // Click event for mouse click
         runawayButton.addEventListener('click', function () {
+            moveButton();
+        });
+
+        // Hover event for mouse hover
+        runawayButton.addEventListener('mouseenter', function () {
             moveButton();
         });
 
